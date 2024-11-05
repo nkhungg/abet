@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Export HTML To Word</title>
+  <style>
+    body {
+      font-size: 14.5px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .left {
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body th:object="${courseOutline}">
+
+  <h2 class="center">COURSE OUTLINE</h2>
+  <h1 class="center" th:text="*{name}"></h1>
+
+  <table class="center" style="width:100%">
+    <tr>
+      <td>MSMH</td>
+      <td colspan="2"><span th:text="*{id}" /></td>
+      <td>Credit</td>
+      <td colspan="3"><span th:text="*{credit}" /></td>
+      <td>Môn ĐA, TT, LV</td>
+      <td colspan="3"><span th:text="*{type}" /></td>
+    </tr>
+    <tr>
+      <td style="width:10%">Số tiết</td>
+      <td style="width:10%">Tổng</td>
+      <td style="width:5%"><span th:text="*{stTong}" /></td>
+      <td style="width:10%">LT</td>
+      <td style="width:5%"><span th:text="*{stLt}" /></td>
+      <td style="width:10%">TH</td>
+      <td style="width:5%"><span th:text="*{stTh}" /></td>
+      <td style="width:10%">TN</td>
+      <td style="width:5%"><span th:text="*{stTn}" /></td>
+      <td style="width:10%">BTL/TL</td>
+      <td style="width:5%"><span th:text="*{stBtlTl}" /></td>
+    </tr>
+    <tr>
+      <td>Tỉ lệ đánh giá</td>
+      <td>BT</td>
+      <td><span th:text="*{tlBt}" /></td>
+      <td>TN</td>
+      <td><span th:text="*{tlTn}" /></td>
+      <td>KT</td>
+      <td><span th:text="*{tlKt}" /></td>
+      <td>BTL/TL</td>
+      <td><span th:text="*{tlBtlTl}" /></td>
+      <td>THI</td>
+      <td><span th:text="*{tlThi}" /></td>
+    </tr>
+    <tr>
+      <td>Môn tiên quyết</td>
+      <td colspan="2"><span th:text="${prerequisiteCourseList}" /></td>
+      <td>Môn học trước</td>
+      <td colspan="3"><span th:text="${priorCourseList}" /></td>
+      <td>Môn song hành</td>
+      <td colspan="3"><span th:text="${parallelCourseList}" /></td>
+    </tr>
+    <tr>
+      <td>CTĐT ngành</td>
+      <td colspan="2"><span th:text="*{ctdt}" /></td>
+      <td>Trình độ đào tạo</td>
+      <td colspan="3"><span th:text="*{trainingDegree}" /></td>
+      <td>Cấp độ môn học</td>
+      <td colspan="3"><span th:text="*{groups}" /></td>
+    </tr>
+    tr>
+    <td>Hình thức đánh giá</td>
+    <td colspan="10" class="left"><span th:utext="*{evaluationForm}" /></td>
+    </tr>
+    tr>
+    <td>Ghi chú khác</td>
+    <td colspan="10" class="left"><span th:utext="*{note}" /></td>
+    </tr>
+  </table>
+
+  <h2>1. Description</h2>
+  <div th:utext="*{description}"></div>
+
+  <h2>2. Study Goals</h2>
+  <div th:utext="*{courseGoal}"></div>
+
+  <h2>3. Materials</h2>
+  <div th:utext="*{material}"></div>
+
+  <h2>4. Outcomes</h2>
+  <table style="width:100%">
+    <tr>
+      <th style="width:10%">No.</th>
+      <th style="width:75%">Output Standard</th>
+      <th style="width:15%">CDIO</th>
+    </tr>
+    <th:block th:each="courseOutcomeExtend : ${courseOutcomeExtendList}">
+      <tr>
+        <td th:rowspan="${courseOutcomeExtend.secondary.size} + 1" class="center" th:text="${courseOutcomeExtend.name}"></td>
+        <td th:text="${courseOutcomeExtend.description}"></td>
+        <td class="center" th:text="${courseOutcomeExtend.cdio}"></td>
+      </tr>
+      <tr th:each="courseOutcome : ${courseOutcomeExtend.secondary}">
+        <td th:text="${courseOutcome.name} + ' - ' + ${courseOutcome.description}"></td>
+        <td class="center" th:text="${courseOutcome.cdio}"></td>
+      </tr>
+    </th:block>
+  </table>
+
+  <h2>5. How to study</h2>
+  <div th:utext="*{guideline}"></div>
+
+  <h2>6. Expected Lecturers</h2>
+  <div th:utext="*{teachingStaff}"></div>
+
+  <h2>7. Details</h2>
+  <table style="width:100%">
+    <tr>
+      <th style="width:5%">Chapter</th>
+      <th style="width:40%">Content</th>
+      <th style="width:35%">Content	Output standard</th>
+      <th style="width:15%">Review action</th>
+    </tr>
+    <tr th:each="courseDetails : ${courseDetailsList}">
+      <td class="center" th:text="${courseDetails.chapter}"></td>
+      <td th:utext="${courseDetails.content}"></td>
+      <td th:utext="${courseDetails.outputStandard}"></td>
+      <td th:utext="${courseDetails.reviewAction}"></td>
+    </tr>
+  </table>
+
+  <h2>8. Contact</h2>
+  <ul>
+    <li>Khoa phụ trách: <span th:text="*{facultyInCharge}" /></li>
+    <li>Văn phòng: <span th:text="*{office}" /></li>
+    <li>Điện thoại: <span th:text="*{telephone}" /></li>
+    <li>Giảng viên phụ trách: <span th:text="*{lecturerInCharge}" /></li>
+    <li>Email: <span th:text="*{email}" /></li>
+  </ul>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Export HTML To Word</title>
+  <style>
+    body {
+      font-size: 14.5px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .ul {
+      margin-top: 8px;
+      list-style-type: none;
+    }
+
+    .mx-8 {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    .ml-32 {
+      margin-left: 32px;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="center">SURVEY</h2>
+  <h1 class="center" th:text="${surveyName}"></h1>
+
+  <div th:each="surveyIndicator : ${surveyIndicatorList}">
+    <div class="mx-8" th:utext="'<b>Câu ' + ${surveyIndicatorStat.index + 1} + ':</b> ' + ${surveyIndicator.description}" />
+    <th:block th:each="answer : ${surveyIndicator.answerSet}">
+      <div class="ml-32" th:text="${answer.levelId + '. ' + answer.description}"></div>
+    </th:block>
+
+    <div th:text="${surveyIndicator.optionSet.length > 0} ? ${optionStatement} : ''" />
+    <form>
+      <th:block th:each="optionSet : ${surveyIndicator.optionSet}">
+        <input type="checkbox" th:text="${optionSet}" /><br />
+      </th:block>
+    </form>
+    <div class="mx-8" th:text="${surveyIndicator.comment > 0} ? ${otherIdea} : ''" />
+  </div>
+
+  <h2 class="center italic">Thank you very much</h2>
+</body>
+</html>

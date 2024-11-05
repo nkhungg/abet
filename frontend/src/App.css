@@ -1,0 +1,17 @@
+body {
+    /* font-family: 'Zen Maru Gothic', sans-serif !important; */
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    background-color: rgba(0,0,0,0.4) !important;
+}
+.ant-table-filter-column {
+    display: flex;
+    justify-content: flex-start !important;
+}
+.ant-table-column-title {
+    flex: unset !important;
+}
+.ant-dropdown-placement-bottomRight {
+    top: 150px !important;
+}

@@ -1,0 +1,21 @@
+#sidebar .ant-layout-sider-children {
+    background: #055278 !important;
+}
+#sidebar .ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+    background: #055278 !important;
+}
+.site-layout-background {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.none-allowed {
+    pointer-events: none;
+    cursor: not-allowed !important;
+}
+.not-click {
+    cursor: not-allowed;
+}
+.ant-breadcrumb {
+    display: flex !important;
+    flex-wrap: wrap;
+}

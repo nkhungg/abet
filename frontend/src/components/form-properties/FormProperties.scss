@@ -1,0 +1,32 @@
+.form-properties {
+    .btn-prop:hover {
+        background: none;
+    }
+    .btn-prop:focus {
+        background: none;
+    }
+    .wrapper-attr {
+        border-radius: 5px;
+        border: 1px solid orange;
+    }
+    .wrapper-edit-attr {
+        border-radius: 5px;
+        border: 1px solid green;
+        color: green;
+    }
+    .wrapper-icon {
+        color: rgb(175 166 166 / 10%);
+        .icon {
+            cursor: pointer;
+        }
+    }
+    .wrapper-all-attr {
+        border-bottom: 1px solid #d9d9d9;
+    }
+    .btn-add-atrr {
+        border-radius: 4px;
+        border: 1px solid blue;
+        color: blue;
+        cursor: pointer;
+    }
+}

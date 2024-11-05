@@ -1,0 +1,92 @@
+.table-stat {
+  --accent-color: #57afaf;
+  --text-color: rgb(19, 33, 37);
+  --bgColorDarker: #ececec;
+  --bgColorLighter: #fcfcfc;
+  --insideBorderColor: lightgray;
+  width: 100%;
+  margin: 30px 0;
+  padding: 0;
+  border: 1px solid var(--accent-color);
+  border-collapse: collapse;
+  color: var(--text-color);
+  table-layout: fixed;
+  display: block;
+  overflow: auto;
+  
+  thead tr {
+    color: whitesmoke;
+    background-color: var(--accent-color);
+    font-size: 14px;
+  }
+  
+  tbody tr {
+    border: 1px solid var(--insideBorderColor);
+    background-color: var(--bgColorDarker);
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: var(--bgColorLighter);
+  }
+  
+  th {
+    letter-spacing: 0.075rem;
+  }
+  
+  th,
+  td {
+    padding: 0.5rem;
+    font-weight: normal;
+    text-align: center;
+    width: 100px;
+  }
+
+  tbody {
+    display: block;
+  }
+
+  thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; 
+  }
+  
+  @media screen and (max-width: 768px) { 
+    border: none;
+  
+    thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+  
+    tbody tr {
+      margin-bottom: 2rem;
+      display: block;
+    }
+  
+    td {
+      font-size: 0.875rem;
+      text-align: right;
+      display: block;
+      width: 100%;
+    }
+  
+    td:before {
+      content: attr(data-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.075rem;
+      text-transform: uppercase;
+      float: left;
+      opacity: 0.5;
+    }
+  
+    td:not(:last-child) {
+      border-bottom: 1px solid var(--insideBorderColor);
+    }
+
+  }
+}

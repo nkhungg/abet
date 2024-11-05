@@ -1,0 +1,11 @@
+.form-cirr-course .ant-select-selector {
+    height: 38px !important;
+}
+.form-cirr-course .ant-select-selector:focus{
+    color: #495057 !important;
+    background-color: #fff;
+    border-color: #80bdff !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%) !important;
+    border: 2px solid #ced4da;
+}

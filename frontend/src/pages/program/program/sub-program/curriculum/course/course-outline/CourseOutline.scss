@@ -1,0 +1,118 @@
+.contact-label {
+  width: 200px;
+}
+.contact-input:disabled {
+  background: #ddf0fe !important;
+}
+.outline-general-input {
+  width: 80px !important;
+}
+.outline-general-input:disabled {
+  background: #fff !important;
+  border: none !important;
+}
+.outline-general-input,
+.outline-general-input:focus {
+  border: 1px solid #4a86b1 !important;
+  border-radius: 3px !important;
+  outline: none;
+  padding: 4px;
+}
+.ant-descriptions-view {
+  width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+.ant-select-disabled .ant-select-selector {
+  background: #fff !important;
+  cursor: auto !important;
+}
+.btn-edit-general {
+  background: #1890ff !important;
+  font-size: 14px !important;
+  border-radius: 2px !important;
+}
+.w-50 {
+  width: 50px;
+}
+.w-60 {
+  width: 60px;
+}
+.w-70 {
+  width: 70px;
+}
+.w-80 {
+  width: 80px;
+}
+.w-90 {
+  width: 90px;
+}
+.m-w-100 {
+  min-width: 100px;
+}
+.w-100 {
+  width: 100% !important;
+}
+.w-1oo {
+  width: 100px;
+}
+.w-110 {
+  width: 110px;
+}
+.w-110 {
+  width: 110px;
+}
+.w-120 {
+  width: 120px;
+}
+.w-130 {
+  width: 130px;
+}
+.w-140 {
+  width: 140px;
+}
+.w-150 {
+  width: 150px;
+}
+.w-170 {
+  width: 170px;
+}
+.w-180 {
+  width: 180px;
+}
+.w-200 {
+  width: 200px;
+}
+.w-220 {
+  width: 220px;
+}
+.w-250 {
+  width: 250px;
+}
+.w-300 {
+  width: 300px;
+}
+.w-600 {
+  width: 600px;
+}
+.cursor-poiter {
+  cursor: pointer;
+}
+.wrapper-outcome {
+    .ant-table-pagination {
+        display: none !important;
+    }
+    .ant-table-expanded-row-fixed {
+      padding-right: 0 !important;
+    }
+}
+.course-outline-detail {
+  .ant-table-body {
+    font-size: 11px !important;
+  }
+  .ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td {
+    /* position: relative; */
+    padding: 0;
+    overflow-wrap: unset;
+  }
+}
