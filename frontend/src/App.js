@@ -77,6 +77,7 @@ import CeSupervisor from './pages/program/program-version/sub-program-version/su
 import Committee from './pages/program/program-version/sub-program-version/survey-vs/committee/Committee';
 import TestResult from './pages/program/program-version/sub-program-version/course/version-course-test/test-result/TestResult';
 import ViewStat from './pages/program/program-version/sub-program-version/foundation-test/ViewStat';
+import SignUp from './pages/signup/SignUp';
 
 
 const messages = {
@@ -179,6 +180,7 @@ function App(props) {
         <HomeTemplate exact path="/user-profile" component={UserProfile} />
         <HomeTemplate exact path="/company-profile" component={CompanyProfile} />
         <Login exact path='/login' />
+        <SignUp exact path='/signup' />
       </Switch>
     </Router>
     </IntlProvider>

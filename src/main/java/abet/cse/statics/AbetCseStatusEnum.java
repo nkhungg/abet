@@ -24,7 +24,7 @@ public enum AbetCseStatusEnum {
   IMPORT_SURVEY_ASSESS_FAILED(-14, "Nhập liệu khảo sát đánh giá không hợp lệ", "Import survey assess invalidly"),
   BLANK_CLASS_ID(-15, "Định danh lớp không hợp lệ", "Blank class id"),
   IMPORT_FOUNDATION_TEST_GRADING_FAILED(-16, "Nhập liệu điểm kiểm tra cơ sở không hợp lệ", "Import foundation test grading invalidly"),
-
+  ACCOUNT_ALREADY_EXISTS(-17, "Tài khoản đã tồn tại trong hệ thống", "Account already exists"),
   ;
 
   private final int code;

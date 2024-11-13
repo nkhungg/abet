@@ -58,7 +58,7 @@ export class ProgramService extends baseService {
         return this.get(`/programs/${programId}/groups?`)
     }
 
-    // 5.3 Course from cirriculum
+    // 5.3 Course from curriculum
     getCourseByCirrList = (page, programId, id, type, searchObj = []) => {
         let searchContent = ''
         searchObj.forEach(element => {
@@ -181,7 +181,7 @@ export class ProgramService extends baseService {
         return this.delete(`/programs/${programId}/outcomes/${outcomeName}`)
     }
 
-    // 4. Cirriculum form
+    // 4. Curriculum form
 
     // 4.1 Post new semester or group by crriculum
     postNewSemesterGroup = (data, programId, type) => {
@@ -214,15 +214,15 @@ export class ProgramService extends baseService {
 
     // 6 Form irriculum course 
 
-    // 6.1 Post new cirriculum course
+    // 6.1 Post new curriculum course
     postNewCirrCourse = (programId, formData, semestergroupId, type) => {
         return this.post(`/programs/${programId}/${type ? 'semesters' : 'groups'}/${semestergroupId}/courses`, 3, formData)
     }
-    // 6.2 Edit cirriculum course
+    // 6.2 Edit curriculum course
     editCirrCourse = (programId, formData, semestergroupId, courseId, type) => {
         return this.put(`/programs/${programId}/${type ? 'semesters' : 'groups'}/${semestergroupId}/courses/${courseId}`, 3, formData)
     }
-    // 6.3 Delete cirriculum course
+    // 6.3 Delete curriculum course
     deleteCirrCourse = (programId, semestergroupId, courseId, type) => {
         return this.delete(`/programs/${programId}/${type ? 'semesters' : 'groups'}/${semestergroupId}/courses/${courseId}`)
     }

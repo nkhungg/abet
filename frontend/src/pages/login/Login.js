@@ -2,6 +2,7 @@ import React from 'react'
 import './Login.scss'
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import { history } from '../../App';
 import { signInActionApi } from '../../actions/api-actions/UserAction'
 
 export default function Login() {
@@ -18,7 +19,7 @@ export default function Login() {
 
     return (
         <div className='login py-4'>
-            <h3 className='text-center mt-3 mb-5'>SIGN IN YOUR ACCOUNT</h3>
+            <h3 className='text-center mt-3 mb-5'>SIGN IN TO YOUR ACCOUNT</h3>
             <form onSubmit={formik.handleSubmit} className='px-4 mb-4 pb-3'>
                 <div className='mt-2'>
                     <input className='account' type='text' name='username' onChange={formik.handleChange} required></input>
@@ -29,13 +30,20 @@ export default function Login() {
                     <label>Password</label>
                 </div>
                 <div className='wrapper-submit py-4'>
-                <button type='submit' className='btn-login btn btn-info font-weight-bold'>Submit</button>
+                    <button type='submit' className='btn-login btn btn-info font-weight-bold'>Submit</button>
                 </div>
             </form>
             <div className='font-weight-bold py-3 px-4 d-flex justify-content-between align-items-center'>
-                <div className='more-help'>Not a member yet?<span className='ml-2 text-primary'>Sign Up.</span></div>
+                <div className='more-help'>Not a member yet?
+                    <span
+                        className='ml-2 text-primary'
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => history.push('/signup')}
+                    >
+                        Sign Up
+                    </span></div>
                 <div className='more-help text-danger'>Forgot your password?</div>
-            </div>  
+            </div>
         </div>
     )
 }

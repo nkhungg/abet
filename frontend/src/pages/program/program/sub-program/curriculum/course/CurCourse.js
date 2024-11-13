@@ -166,7 +166,7 @@ export default function CurCourse() {
               onClick={() => {
                 const action1 = {
                   type: ADD_INFO_COURSE_DRAWER,
-                  title: "EDIT CIRRICULUM COURSE",
+                  title: "EDIT CURRICULUM COURSE",
                   Component: <FormCirrCourse type={type} />,
                 };
 
@@ -251,7 +251,7 @@ export default function CurCourse() {
             onClick={() => {
               let action = {
                 type: ADD_INFO_COURSE_DRAWER,
-                title: "ADD NEW CIRRICULUM COURSE",
+                title: "ADD NEW CURRICULUM COURSE",
                 Component: <FormCirrCourse type={type}/>,
               };
               dispatch(action);

@@ -8,6 +8,7 @@ export const HIDE_LOADING = 'HIDE_LOADING'
 // 2. PAGES
 // User
 export const SIGN_IN = 'SIGN_IN'
+export const SIGN_UP = 'SIGN_UP'
 export const GET_INFO_BY_ACCTOKEN= 'GET_INFO_BY_ACCTOKEN'
 // Student
 export const GET_STUDENT_LIST = 'GET_STUDENT_LIST'

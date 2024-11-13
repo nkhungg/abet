@@ -6,6 +6,10 @@ export class UserService extends baseService {
         return this.post('/login', 1, data)
     }
 
+    signUp = (data) => {
+        return this.post('/signup', 1, data)
+    }
+
     getInfoFromAccessToken = () => {
         return this.get('/profile')
     }

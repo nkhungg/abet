@@ -45,16 +45,64 @@ public class AuthService {
     return response;
   }
 
+  // public SignupResponse handleSignup(SignupRequest request) {
+  // SignupResponse response;
+  // try {
+  // Account account = new Account(request);
+  // accountRepo.save(account);
+  // response = new SignupResponse(AbetCseStatusEnum.REQUEST_OK);
+  // } catch (Exception ex) {
+  // log.error("signup ERROR with exception: ", ex);
+  // response = new SignupResponse(AbetCseStatusEnum.SIGNUP_FAILURE);
+  // }
+  // return response;
+  // }
+
   public SignupResponse handleSignup(SignupRequest request) {
-    SignupResponse response;
     try {
+      // Kiểm tra xem tài khoản đã tồn tại hay chưa
+      if (accountRepo.findByUsername(request.getUsername()) != null) {
+        return new SignupResponse(AbetCseStatusEnum.ACCOUNT_ALREADY_EXISTS);
+      }
+
+      // Tạo tài khoản mới
       Account account = new Account(request);
       accountRepo.save(account);
-      response = new SignupResponse(AbetCseStatusEnum.REQUEST_OK);
+
+      // // Tạo DTO cho tài khoản mới
+      // AccountDto accountDto = new AccountDto(account);
+      // Role role = roleRepo.findById(account.getRole());
+      // accountDto.setRole(role.getName());
+
+      // Tạo phản hồi đăng ký thành công
+      return new SignupResponse(AbetCseStatusEnum.REQUEST_OK);
+
     } catch (Exception ex) {
       log.error("signup ERROR with exception: ", ex);
-      response = new SignupResponse(AbetCseStatusEnum.SIGNUP_FAILURE);
+      return new SignupResponse(AbetCseStatusEnum.SIGNUP_FAILURE);
     }
-    return response;
   }
+
+  // thử thay response c
+
+  // public LoginResponse handleLogin(LoginRequest request) {
+  // Account account = accountRepo.findByUsername(request.getUsername());
+  // if (Objects.isNull(account)) {
+  // return new LoginResponse(AbetCseStatusEnum.ACCOUNT_NOT_EXIST);
+  // }
+  // String hashPassword = Hashing.sha256().hashString(
+  // request.getPassword(), StandardCharsets.UTF_8).toString();
+  // if (!account.getPassword().equals(hashPassword)) {
+  // return new LoginResponse(AbetCseStatusEnum.PASSWORD_INCORRECT);
+  // }
+  // AccountDto accountDto = new AccountDto(account);
+  // Role role = roleRepo.findById(account.getRole());
+  // accountDto.setRole(role.getName());
+  // String accessToken = jwtService.generateToken(account.getId());
+  // LoginResponse response = new LoginResponse(AbetCseStatusEnum.REQUEST_OK,
+  // accessToken,
+  // accountDto);
+  // return response;
+  // }
+
 }

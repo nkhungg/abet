@@ -26,6 +26,7 @@ public class Account {
         request.getPassword(), StandardCharsets.UTF_8).toString();
     this.displayName = request.getDisplayName();
     this.username = request.getUsername();
+    // this.email = request.getEmail();
     this.password = hashPassword;
     this.role = request.getRole();
   }

@@ -1,4 +1,4 @@
-import { SIGN_IN, GET_INFO_BY_ACCTOKEN, TRANSLATE_LANGUAGE } from '../../types/index'
+import { SIGN_IN, SIGN_UP, GET_INFO_BY_ACCTOKEN, TRANSLATE_LANGUAGE } from '../../types/index'
 
 
 
@@ -14,6 +14,9 @@ export const UserReducer = (state = stateDefault, action) => {
         case SIGN_IN:
             return { ...state, userLogin: action.payload }
      
+        case SIGN_UP:
+            return { ...state, userLogin: action.payload }
+
         case GET_INFO_BY_ACCTOKEN: 
             return { ...state, userLogin: action.payload }
 

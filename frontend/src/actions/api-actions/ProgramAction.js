@@ -735,15 +735,15 @@ export const deleteOutcomesActionApi = (programId, outcomeName) => {
   }
 }
 
-// 4. Cirriculum form
+// 4. Curriculum form
 
 // 4.1 Post new semester or group by crriculum
 
-export const addNewSemesterGroupActionApi = (cirriculum, type) => {
+export const addNewSemesterGroupActionApi = (curriculum, type) => {
   return async (dispatch) => {
     try {
-      let {programId} = cirriculum
-      let result = await programService.postNewSemesterGroup(cirriculum,programId, type)
+      let {programId} = curriculum
+      let result = await programService.postNewSemesterGroup(curriculum,programId, type)
       if(result && result.data?.code > 0) {
         notifiFunction('success', result.data?.enMessage)
       } 
@@ -767,11 +767,11 @@ export const addNewSemesterGroupActionApi = (cirriculum, type) => {
 
 // 4.2 Edit semester or group by crriculum
 
-export const editSemesterGroupActionApi = (cirriculum, type) => {
+export const editSemesterGroupActionApi = (curriculum, type) => {
   return async (dispatch) => {
     try {
-      let {programId, id} = cirriculum
-      let result = await programService.editSemesterGroup(cirriculum, programId, id, type)
+      let {programId, id} = curriculum
+      let result = await programService.editSemesterGroup(curriculum, programId, id, type)
       if(result && result.data?.code > 0) {
         notifiFunction('success', result.data?.enMessage)
       } 
@@ -945,9 +945,9 @@ export const deleteIndicatorActionApi = (programId, outcomeName, indicatorName) 
   }
 }
 
-// 6 Form irriculum course 
+// 6 Form curriculum course 
 
-// 6.1 Post new cirriculum course
+// 6.1 Post new curriculum course
 
 export const addpostNewCirrCourseActionApi = (cirrCourseInfo) => {
   return async (dispatch) => {
@@ -986,7 +986,7 @@ export const addpostNewCirrCourseActionApi = (cirrCourseInfo) => {
   }
 }
 
-// 6.2 Edit cirriculum course
+// 6.2 Edit curriculum course
 
 export const editCirrCourseActionApi = (cirrCourseInfo) => {
   return async (dispatch) => {
@@ -1025,7 +1025,7 @@ export const editCirrCourseActionApi = (cirrCourseInfo) => {
   }
 }
 
-// 6.3 Delete cirriculum course
+// 6.3 Delete curriculum course
 
 export const deleteCirrCourseActionApi = (cirrCourseInfo) => {
   return async (dispatch) => {

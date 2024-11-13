@@ -305,6 +305,7 @@ export default function ProgramVersion() {
               dispatch(action);
               const action2 = {
                 type: SET_EDIT_PROGRAM_VERSION,
+                // payload: {}
                 payload: { isEdit: false }
               };
               dispatch(action2);

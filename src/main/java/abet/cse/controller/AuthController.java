@@ -61,17 +61,20 @@ public class AuthController {
       } else {
         response = authService.handleSignup(request);
       }
-      log.info("signup with [LoginRequest]: {}, [LoginResponse]: {}",
+      log.info("signup with [SignupRequest]: {}, [SignupResponse]: {}",
           rawRequest.replaceAll("\\s+", ""), ObjectUtils.toJsonString(response));
     } catch (JsonSyntaxException ex) {
-      log.error("signup ERROR with [LoginRequest]: {}, exception ",
+      log.error("signup ERROR with [SignupRequest]: {}, exception ",
           rawRequest.replaceAll("\\s+", ""), ex);
       response = new SignupResponse(AbetCseStatusEnum.INVALID_PARAM_TYPES);
     } catch (Exception ex) {
-      log.error("signup ERROR with [LoginRequest]: {}, exception ",
+      log.error("signup ERROR with [SignupRequest]: {}, exception ",
           rawRequest.replaceAll("\\s+", ""), ex);
       response = new SignupResponse(AbetCseStatusEnum.SYSTEM_ERROR);
     }
     return ResponseEntity.ok(ObjectUtils.toJsonString(response));
   }
 }
+
+
+
