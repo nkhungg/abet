@@ -6,7 +6,7 @@ import "./HomeTemplate.scss";
 import { NavLink } from "react-router-dom";
 import { Breadcrumb } from "antd";
 import { FormattedMessage } from "react-intl";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SET_FLOW_PROGRAM_VERSION, SET_FLOW_GENERAL_PROGRAM } from "../../redux/types";
 
 const { Header, Content, Sider } = Layout;

@@ -26,6 +26,10 @@ spring:
   servlet:
     multipart:
       maxFileSize: 30MB
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
 
 jwt:
   secret: mS90Jysm4r9jRFiIT3mi1rDSCCvQH0v8R7PcyBqwR1p6
